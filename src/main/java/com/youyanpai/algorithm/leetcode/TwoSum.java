@@ -1,7 +1,10 @@
 package com.youyanpai.algorithm.leetcode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 1. stream()是jdk8中的新特性;
@@ -16,11 +19,21 @@ public class TwoSum {
 	private static int target = 10;
 	
 	public static void main(String[] args) {
-		int[] a = twoSum_1(test, target);
-		System.out.println(a);
+		int[] a = bruteForce(test, target);
+		System.out.println(Arrays.toString(a));
+//		System.out.println(StringUtils.join(a, ','));
+		int[] b = hashTwice(test, target);
+		System.out.println(Arrays.toString(b));
 	}
 	
-	public static int[] twoSum_1(int[] nums, int target){
+	/**
+	 * 暴力破解
+	 * 循环套循环,依次求和
+	 * @param nums
+	 * @param target
+	 * @return
+	 */
+	public static int[] bruteForce(int[] nums, int target){
 		List<Integer> result = new ArrayList<Integer>();
         for(int i=0;i<nums.length-1;i++){
             for(int j=i;j<nums.length;j++){
@@ -34,12 +47,24 @@ public class TwoSum {
         return rs;
 	}
 	
-	public static int[] twoSum_2(int[] nums, int target){
+	/**
+	 * 两次使用hash对比
+	 * @param nums
+	 * @param target
+	 * @return
+	 */
+	public static int[] hashTwice(int[] nums, int target){
 		List<Integer> result = new ArrayList<Integer>();
+		Map<Integer, Integer> first = new HashMap<Integer, Integer>();
 		for(int i=0;i<nums.length;i++){
-//			if(target-nums[i]){
-//				
-//			}
+			first.put(nums[i], i);
+		}
+		for(int i=0;i<nums.length;i++){
+			int s = target - nums[i];
+			if(null!=first.get(s)){
+				result.add(nums[i]);
+//				result.add(first.);
+			}
 		}
 		int[] rs = result.stream().mapToInt(Integer::intValue).toArray();
         return rs;
