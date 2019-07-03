@@ -24,6 +24,8 @@ public class TwoSum {
 //		System.out.println(StringUtils.join(a, ','));
 		int[] b = hashTwice(test, target);
 		System.out.println(Arrays.toString(b));
+		int[] c = hashOnce(test, target);
+		System.out.println(Arrays.toString(c));
 	}
 	
 	/**
@@ -34,17 +36,18 @@ public class TwoSum {
 	 * @return
 	 */
 	public static int[] bruteForce(int[] nums, int target){
-		List<Integer> result = new ArrayList<Integer>();
+//		List<Integer> result = new ArrayList<Integer>();
         for(int i=0;i<nums.length-1;i++){
             for(int j=i;j<nums.length;j++){
                 if(nums[i] + nums[j] == target){
-                    result.add(nums[i]);
-                    result.add(nums[j]);
+//                    result.add(nums[i]);
+//                    result.add(nums[j]);
+                	return new int[]{i, j};
                 }
             }
         }
-        int[] rs = result.stream().mapToInt(Integer::intValue).toArray();
-        return rs;
+//        int[] rs = result.stream().mapToInt(Integer::intValue).toArray();
+        return null;
 	}
 	
 	/**
@@ -54,7 +57,7 @@ public class TwoSum {
 	 * @return
 	 */
 	public static int[] hashTwice(int[] nums, int target){
-		List<Integer> result = new ArrayList<Integer>();
+//		List<Integer> result = new ArrayList<Integer>();
 		Map<Integer, Integer> first = new HashMap<Integer, Integer>();
 		for(int i=0;i<nums.length;i++){
 			first.put(nums[i], i);
@@ -62,12 +65,31 @@ public class TwoSum {
 		for(int i=0;i<nums.length;i++){
 			int s = target - nums[i];
 			if(null!=first.get(s)){
-				result.add(nums[i]);
+//				result.add(nums[i]);
 //				result.add(first.);
+				return new int[]{i, first.get(s)};
 			}
 		}
-		int[] rs = result.stream().mapToInt(Integer::intValue).toArray();
-        return rs;
+//		int[] rs = result.stream().mapToInt(Integer::intValue).toArray();
+        return null;
+	}
+	
+	/**
+	 * 一次使用hash对比
+	 * @param nums
+	 * @param target
+	 * @return
+	 */
+	public static int[] hashOnce(int[] nums, int target){
+		Map<Integer, Integer> first = new HashMap<Integer, Integer>();
+		for(int i=0;i<nums.length;i++){
+			first.put(nums[i], i);
+			int s = target - nums[i];
+			if(first.get(s)!=null){
+				return new int[]{i, first.get(s)};
+			}
+		}
+		return null;
 	}
 
 }
