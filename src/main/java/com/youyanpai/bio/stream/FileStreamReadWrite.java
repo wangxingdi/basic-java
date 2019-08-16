@@ -1,4 +1,4 @@
-package com.youyanpai.io.stream;
+package com.youyanpai.bio.stream;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

@@ -1,4 +1,4 @@
-package com.youyanpai.io.readerwriter;
+package com.youyanpai.bio.readerwriter;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
