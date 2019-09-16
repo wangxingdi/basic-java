@@ -1,4 +1,4 @@
-package com.youyanpai.nio.nioeventloopgroupftp;
+package com.youyanpai.jdk.io.nio.nioeventloopgroupftp;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;

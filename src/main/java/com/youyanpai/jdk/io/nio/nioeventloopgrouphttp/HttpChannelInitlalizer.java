@@ -1,4 +1,4 @@
-package com.youyanpai.nio.nioeventloopgrouphttp;
+package com.youyanpai.jdk.io.nio.nioeventloopgrouphttp;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;

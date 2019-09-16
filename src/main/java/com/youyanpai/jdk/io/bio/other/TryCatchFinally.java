@@ -1,4 +1,4 @@
-package com.youyanpai.bio.other;
+package com.youyanpai.jdk.io.bio.other;
 
 import java.io.FileInputStream;
 import java.io.IOException;

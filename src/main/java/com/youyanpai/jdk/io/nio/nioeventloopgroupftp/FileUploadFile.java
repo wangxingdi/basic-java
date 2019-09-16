@@ -1,4 +1,4 @@
-package com.youyanpai.nio.nioeventloopgroupftp;
+package com.youyanpai.jdk.io.nio.nioeventloopgroupftp;
 
 import java.io.File;
 import java.io.Serializable;

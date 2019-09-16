@@ -1,4 +1,4 @@
-package com.youyanpai.nio.nioeventloopgrouphttp;
+package com.youyanpai.jdk.io.nio.nioeventloopgrouphttp;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
