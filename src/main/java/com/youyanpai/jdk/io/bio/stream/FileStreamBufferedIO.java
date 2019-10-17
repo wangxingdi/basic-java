@@ -13,7 +13,7 @@ import java.util.Date;
  * 
  * @author wangxd
  */
-public class FileStreamBufferReadWrite {
+public class FileStreamBufferedIO {
 	
 	public static void main(String[] args) throws IOException {
 		String inFile = "D:\\IDE/eclipse_mars/workspace/git/basic-of-java/basic-of-java/src/com/youyanpai/io/stream/FileStreamBufferReadWrite.java";
