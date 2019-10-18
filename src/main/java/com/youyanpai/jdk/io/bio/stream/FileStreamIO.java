@@ -29,6 +29,8 @@ public class FileStreamIO {
 			out.write(("当前系统时间:"+new Date()).toString().getBytes());
 			out.close();
 			in.close();
+		} catch ( IOException ex) {
+			
 		}
 		System.out.println("===读写结束===");
 	}
