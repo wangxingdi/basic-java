@@ -5,6 +5,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 两数之和: 对于给定的一个整数数组和一个特定的目标值, 找出
+ * 在整数数组中两数和等于目标值的下标;
+ * -> 多个数字和等于目标值;
+ * ====================================================
  * 1. stream()是jdk8中的新特性;
  * 2. mapXXX()是对流中的数据进行处理;
  * 3. 类名::方法名是一种Lambda表达式, 也可以换一种写法
@@ -34,28 +38,23 @@ public class TwoSum {
 	 * @return
 	 */
 	public static int[] bruteForce(int[] nums, int target){
-//		List<Integer> result = new ArrayList<Integer>();
         for(int i=0;i<nums.length-1;i++){
             for(int j=i;j<nums.length;j++){
                 if(nums[i] + nums[j] == target){
-//                    result.add(nums[i]);
-//                    result.add(nums[j]);
                 	return new int[]{i, j};
                 }
             }
         }
-//        int[] rs = result.stream().mapToInt(Integer::intValue).toArray();
-        return null;
+        return new int[]{};
 	}
 	
 	/**
-	 * 两次使用hash对比
+	 * 两次使用hash对比;循环乘以循环改为循环加循环;利用map的get特性
 	 * @param nums
 	 * @param target
 	 * @return
 	 */
 	public static int[] hashTwice(int[] nums, int target){
-//		List<Integer> result = new ArrayList<Integer>();
 		Map<Integer, Integer> first = new HashMap<Integer, Integer>();
 		for(int i=0;i<nums.length;i++){
 			first.put(nums[i], i);
@@ -63,17 +62,14 @@ public class TwoSum {
 		for(int i=0;i<nums.length;i++){
 			int s = target - nums[i];
 			if(null!=first.get(s)){
-//				result.add(nums[i]);
-//				result.add(first.);
 				return new int[]{i, first.get(s)};
 			}
 		}
-//		int[] rs = result.stream().mapToInt(Integer::intValue).toArray();
-        return null;
+        return new int[]{};
 	}
 	
 	/**
-	 * 一次使用hash对比
+	 * 一次使用hash对比;利用map特性;若存在,则一定成对出现原则;
 	 * @param nums
 	 * @param target
 	 * @return
@@ -87,7 +83,7 @@ public class TwoSum {
 				return new int[]{i, first.get(s)};
 			}
 		}
-		return null;
+		return new int[]{};
 	}
 
 }

@@ -2,18 +2,15 @@ package com.youyanpai.algorithm.leetcode;
 
 public class TwoAdd {
 	
-	/*public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-		ListNode node = new ListNode();
-		
-		return node;
-    }*/
+	private static int[] a = {2, 4, 3};
+	private static int[] b = {5, 6, 4};
 	
-	public class ListNode {
-		int val;
-		ListNode next;
-		ListNode(int x) {
-			val = x; 
-		}
+	public static void main(String[] args) {
+		Math.abs(10);
+	}
+	
+	public static int getNum(int param, int index){
+		return 1;
 	}
 
 }
