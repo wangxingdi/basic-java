@@ -1,9 +1,20 @@
 package com.youyanpai.algorithm.leetcode;
 
+/**
+ * 两数相加
+ * =========================================================
+ * 给出两个非空的链表用来表示两个非负的整数。
+ * 其中，它们各自的位数是按照“逆序”的方式存储的，
+ * 并且它们的每个节点只能存储 一位 数字。
+ * 如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。
+ * 您可以假设除了数字0之外，这两个数都不会以0开头。
+ * =========================================================
+ * @author wangxd
+ */
 public class TwoAdd {
 	
-	private static int[] a = {2, 4, 3};
-	private static int[] b = {5, 6, 4};
+	private static int[] a = {0};
+	private static int[] b = {0};
 	
 	public static void main(String[] args) throws Exception {
 		Math.abs(10);
@@ -25,7 +36,12 @@ public class TwoAdd {
 			for (int i=0;i<a.length;i++) {
 				int result = a[i] + b[i] + plus;
 				if (i == a.length-1){
-					sb.append(result);
+					if (result < 10) {
+						sb.append(result);
+					} else {
+						sb.append(result % 10);
+						sb.append(result /10);
+					}
 				} else if(10 <= result) {
 					plus = result / 10;
 					sb.append(result % 10);
