@@ -25,6 +25,7 @@ public class QueueApi {
 		//空队列返回null
 		System.out.println(q.poll());
 		System.out.println(q);
+                //这里将会发生代码冲突
 	}
 
 }
