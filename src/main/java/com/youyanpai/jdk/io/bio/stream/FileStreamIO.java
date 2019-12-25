@@ -20,7 +20,8 @@ public class FileStreamIO {
 	public static void main(String[] args)  {
 		String inPath = "src/main/java/com/youyanpai/jdk/io/bio/stream/FileStreamIO.java";
 		String outPath = "src/main/java/com/youyanpai/jdk/io/bio/stream/FileStreamIOCopy.txt";
-		try(InputStream in = new FileInputStream(inPath);OutputStream out = new FileOutputStream(outPath)){
+		try(InputStream in = new FileInputStream(inPath);
+				OutputStream out = new FileOutputStream(outPath)){
 			byte[] bytes = new byte[1024];
 			int i = -1;
 			while((i = in.read(bytes)) != -1){

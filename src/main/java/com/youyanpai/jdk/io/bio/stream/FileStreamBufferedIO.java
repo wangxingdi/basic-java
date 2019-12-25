@@ -16,8 +16,8 @@ import java.util.Date;
 public class FileStreamBufferedIO {
 	
 	public static void main(String[] args) throws IOException {
-		String inFile = "D:\\IDE/eclipse_mars/workspace/git/basic-of-java/basic-of-java/src/com/youyanpai/io/stream/FileStreamBufferReadWrite.java";
-		String outFile = "E:\\out.txt";
+		String inFile = "src/main/java/com/youyanpai/jdk/io/bio/stream/FileStreamBufferedIO.java";
+		String outFile = "src/main/java/com/youyanpai/jdk/io/bio/stream/FileStreamBufferedIOCopy.text";
 		InputStream is = new FileInputStream(inFile);
 		OutputStream os = new FileOutputStream(outFile);
 		BufferedInputStream bis = new BufferedInputStream(is);
