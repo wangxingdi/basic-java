@@ -17,7 +17,7 @@ public class FileStreamBufferedIO {
 	
 	public static void main(String[] args) throws IOException {
 		String inFile = "src/main/java/com/youyanpai/jdk/io/bio/stream/FileStreamBufferedIO.java";
-		String outFile = "src/main/java/com/youyanpai/jdk/io/bio/stream/FileStreamBufferedIOCopy.text";
+		String outFile = "src/main/java/com/youyanpai/jdk/io/bio/stream/FileStreamBufferedIOCopy.txt";
 		InputStream is = new FileInputStream(inFile);
 		OutputStream os = new FileOutputStream(outFile);
 		BufferedInputStream bis = new BufferedInputStream(is);

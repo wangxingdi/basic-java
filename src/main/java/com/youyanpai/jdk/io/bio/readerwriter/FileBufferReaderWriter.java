@@ -13,11 +13,16 @@ import java.io.Reader;
 import java.io.Writer;
 import java.util.Date;
 
+/**
+ * 1. BufferedReader的readLine()是阻塞式的,如果到达流末尾,返回null;
+ * 2. 
+ * @author wangxd
+ */
 public class FileBufferReaderWriter {
 
 	public static void main(String[] args) throws IOException {
-		String inFile = "D:\\IDE/eclipse_mars/workspace/git/basic-of-java/basic-of-java/src/com/youyanpai/io/readerwriter/FileBufferReaderWriter.java";
-		String outFile = "E:\\out.txt";
+		String inFile = "src/main/java/com/youyanpai/jdk/io/bio/readerwriter/FileBufferReaderWriter.java";
+		String outFile = "src/main/java/com/youyanpai/jdk/io/bio/readerwriter/FileBufferReaderWriterCopy.txt";
 		InputStream in = new FileInputStream(inFile);
 		Reader r = new InputStreamReader(in);
 		BufferedReader br = new BufferedReader(r);
