@@ -9,40 +9,38 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.io.Reader;
-import java.io.Writer;
-import java.util.Date;
 
 /**
- * 1. BufferedReader的readLine()是阻塞式的,如果到达流末尾,返回null;
- * 2. 
+ * 1. BufferedReader的readLine()是阻塞式的,如果到达流末尾,返回null; 2.
+ * Socket通信不太适合readLine(),因为在使用readLine()时,线程会一直阻塞寻找"回车""换行"符; 2.
+ * 
  * @author wangxd
  */
 public class FileBufferReaderWriter {
 
 	public static void main(String[] args) throws IOException {
-		String inFile = "src/main/java/com/youyanpai/jdk/io/bio/readerwriter/FileBufferReaderWriter.java";
+		long start = System.currentTimeMillis();
+		String inFile = "src/main/java/com/youyanpai/jdk/io/bio/readerwriter/test.txt";
 		String outFile = "src/main/java/com/youyanpai/jdk/io/bio/readerwriter/FileBufferReaderWriterCopy.txt";
-		InputStream in = new FileInputStream(inFile);
-		Reader r = new InputStreamReader(in);
-		BufferedReader br = new BufferedReader(r);
-		OutputStream out = new FileOutputStream(outFile);
-		Writer w = new OutputStreamWriter(out);
-		BufferedWriter bw = new BufferedWriter(w);
-		String str = null;
-		while((str = br.readLine()) != null){
-			bw.write(str);
-			//回车换行
-			bw.newLine();
+		String s = "";
+		try (InputStream in = new FileInputStream(inFile);
+				InputStreamReader inputStreamReader = new InputStreamReader(in);
+				BufferedReader reader = new BufferedReader(inputStreamReader)) {
+			while ((s = reader.readLine()) != null) {
+				try(OutputStream out = new FileOutputStream(outFile);
+				OutputStreamWriter outputStreamWriter = new OutputStreamWriter(out);
+				BufferedWriter writer = new BufferedWriter(outputStreamWriter)){
+					writer.write(s);
+					writer.flush();
+				} catch (Exception e){
+					System.out.println(e);
+				}
+			} 
+		} catch (Exception e) {
+			System.out.println(e);
 		}
-		bw.write("系统当前时间:"+new Date().toString());
-		br.close();
-		r.close();
-		in.close();
-		bw.close();
-		w.close();
-		out.close();
-		System.out.println("===读写结束===");
+		long end = System.currentTimeMillis();
+		System.out.println("===读写结束：共耗时(ms)：" + (end - start));
 	}
 
 }
