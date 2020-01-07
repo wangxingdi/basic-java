@@ -11,8 +11,8 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 
 /**
- * 1. BufferedReader的readLine()是阻塞式的,如果到达流末尾,返回null; 2.
- * Socket通信不太适合readLine(),因为在使用readLine()时,线程会一直阻塞寻找"回车""换行"符; 2.
+ * 1. BufferedReader的readLine()是阻塞式的,如果到达流末尾,返回null;
+ * 2. Socket通信不太适合readLine(),因为在使用readLine()时,线程会一直阻塞寻找"回车""换行"符;
  * 
  * @author wangxd
  */
@@ -20,7 +20,7 @@ public class FileBufferReaderWriter {
 
 	public static void main(String[] args) throws IOException {
 		long start = System.currentTimeMillis();
-		String inFile = "src/main/java/com/youyanpai/jdk/io/bio/readerwriter/test.txt";
+		String inFile = "src/main/java/com/youyanpai/jdk/io/bio/readerwriter/FileBufferReaderWriter.java";
 		String outFile = "src/main/java/com/youyanpai/jdk/io/bio/readerwriter/FileBufferReaderWriterCopy.txt";
 		String s = "";
 		try (InputStream in = new FileInputStream(inFile);
@@ -35,7 +35,7 @@ public class FileBufferReaderWriter {
 				} catch (Exception e){
 					System.out.println(e);
 				}
-			} 
+			}
 		} catch (Exception e) {
 			System.out.println(e);
 		}
