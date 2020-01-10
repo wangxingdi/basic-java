@@ -27,11 +27,11 @@ public class FileBufferReaderWriter {
 				InputStreamReader inputStreamReader = new InputStreamReader(in);
 				BufferedReader reader = new BufferedReader(inputStreamReader)) {
 			while ((s = reader.readLine()) != null) {
-				try(OutputStream out = new FileOutputStream(outFile);
+				try(OutputStream out = new FileOutputStream(outFile, true);
 				OutputStreamWriter outputStreamWriter = new OutputStreamWriter(out);
 				BufferedWriter writer = new BufferedWriter(outputStreamWriter)){
 					writer.write(s);
-					writer.flush();
+					writer.newLine();
 				} catch (Exception e){
 					System.out.println(e);
 				}
