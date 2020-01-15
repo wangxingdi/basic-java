@@ -23,21 +23,32 @@ public class FileBufferReaderWriter {
 		String inFile = "src/main/java/com/youyanpai/jdk/io/bio/readerwriter/FileBufferReaderWriter.java";
 		String outFile = "src/main/java/com/youyanpai/jdk/io/bio/readerwriter/FileBufferReaderWriterCopy.txt";
 		String s = "";
-		try (InputStream in = new FileInputStream(inFile);
-				InputStreamReader inputStreamReader = new InputStreamReader(in);
-				BufferedReader reader = new BufferedReader(inputStreamReader)) {
-			while ((s = reader.readLine()) != null) {
-				try(OutputStream out = new FileOutputStream(outFile, true);
-				OutputStreamWriter outputStreamWriter = new OutputStreamWriter(out);
-				BufferedWriter writer = new BufferedWriter(outputStreamWriter)){
-					writer.write(s);
-					writer.newLine();
-				} catch (Exception e){
-					System.out.println(e);
+		char[] buffer = new char[1024];
+		int length = 0;
+		try (InputStream is = new FileInputStream(inFile);
+				InputStreamReader isr = new InputStreamReader(is);
+				BufferedReader br = new BufferedReader(isr)){
+			/*while (-1 != (length = br.read(buffer))) {
+				try(OutputStream os = new FileOutputStream(outFile, true);
+						OutputStreamWriter osw = new OutputStreamWriter(os);
+						BufferedWriter bw = new BufferedWriter(osw)) {
+					bw.write(buffer, 0, length);
+				} catch (Exception e) {
+					System.out.println("writer构建流失败");
+				}
+			}*/
+			while (null != (s=br.readLine())) {
+				try(OutputStream os = new FileOutputStream(outFile, true);
+						OutputStreamWriter osw = new OutputStreamWriter(os);
+						BufferedWriter bw = new BufferedWriter(osw)){
+					bw.write(s, 0, s.length());
+					bw.newLine();
+				}catch (Exception e) {
+					System.out.println("writer构建流失败");
 				}
 			}
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println("reader流构建失败");
 		}
 		long end = System.currentTimeMillis();
 		System.out.println("===读写结束：共耗时(ms)：" + (end - start));
