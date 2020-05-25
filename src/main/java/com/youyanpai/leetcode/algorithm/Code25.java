@@ -35,20 +35,20 @@ public class Code25 {
 		if(head == null || head.next == null){
 			return head;
 		}
-		ListNode tmp = head;
-		for(int i=1;i<k&&tmp!=null;i++){
-			tmp = tmp.next;
+		ListNode kGroupLast = head;
+		for(int i=1;i<k&&kGroupLast!=null;i++){
+			kGroupLast = kGroupLast.next;
 		}
-		if(tmp == null){
+		if(kGroupLast == null){
 			return head;
 		}
-		ListNode t2 = tmp.next;
-		tmp.next = null;
+		ListNode rest = kGroupLast.next;
+		kGroupLast.next = null;
 		//获取反转后的链表表头
 		ListNode newHead = reverseList(head);
 		//获取分组
-		ListNode newTmp = reverseKGroup(t2, k);
-		head.next = newTmp;
+		ListNode newRest = reverseKGroup(rest, k);
+		head.next = newRest;
 		return newHead;
 	}
 	
