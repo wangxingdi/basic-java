@@ -40,7 +40,9 @@ public class BubbleSort {
 	 * @return 排序后数组
 	 */
 	public static int[] simpleSort(int[] arr, String order){
+		//第一层循环,目的是为了限制一个段区间
 		for(int i=arr.length-1;i>1;i--){
+			//第二层循环,目的是为了在限制的区间内,相邻两个元素逐个比较
 			for(int j=0;j<i;j++){
 				switch (order) {
 				case SortConstant.AES:

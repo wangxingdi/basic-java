@@ -41,6 +41,9 @@ public class InsertionSort {
 	 * @return
 	 */
 	public static int[] directInsertSort1(int[] arr, String order){
+		if(null==arr){
+			return null;
+		}
 		for(int i=1;i<arr.length;i++){
 			int tmp = arr[i];
 			int j = i-1;
@@ -64,6 +67,9 @@ public class InsertionSort {
 	}
 	
 	public static int[] directInsertSort2(int[] arr, String order){
+		if(null==arr){
+			return null;
+		}
 		for(int i=1;i<arr.length;i++){
 			int tmp = arr[i];
 			int j = i - 1;

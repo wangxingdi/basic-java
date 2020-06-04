@@ -22,7 +22,7 @@ public class SortConstant {
 	/**
 	 * 待排序数组1
 	 */
-	public static final int[] ARR1 = {7, 2, 1, 9, 6, 29, 74, 31, 124, 25, 35, 54, 85, 2, 24, 35, 68, 84, 51, 24, 67, 98, 189};
+	public static final int[] ARR1 = {7, 2, 1, 9, 6, 29};
 	
 	/**
 	 * 待排序数组2
