@@ -12,8 +12,9 @@ public class LengthOfLongestSubstring {
 
 	public static void main(String[] args) {
 		
-		String target = "abcdefd2345678";
-		System.out.println(getLengthOfLongestSubstring(target));
+		String target = " ";
+//		System.out.println(getLengthOfLongestSubstring(target));
+		System.out.println(lengthOfLongestSubstring(target));
 	}
 	
 	public static int getLengthOfLongestSubstring(String target) {
@@ -21,7 +22,6 @@ public class LengthOfLongestSubstring {
 		if (StringUtils.isNotBlank(target)) {
 			StringBuilder sb = new StringBuilder();
 			for (int i=0;i<target.length()-1;i++) {
-				System.out.println("================循环====");
 				char begin = target.charAt(i);
 				sb.append(begin);
 				for (int j=i+1;j<target.length();j++) {
@@ -53,5 +53,26 @@ public class LengthOfLongestSubstring {
 		}
 		return max;
 	}
+	
+	public static int lengthOfLongestSubstring(String s) {
+        int max = 0;
+        StringBuilder sb = new StringBuilder();
+    	for (int i=0;i<s.length();i++) {
+            char curr = s.charAt(i);
+            if (sb.indexOf(String.valueOf(curr)) == -1) {
+                sb.append(curr);
+            } else {
+                if (max < sb.length()) {
+                    max = sb.length();
+                }
+                sb = new StringBuilder();
+                sb.append(curr);
+            }
+        }
+    	if (max < sb.length()) {
+            max = sb.length();
+        }
+        return max;
+    }
 
 }
