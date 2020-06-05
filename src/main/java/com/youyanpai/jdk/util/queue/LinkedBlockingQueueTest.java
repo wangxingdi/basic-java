@@ -36,7 +36,7 @@ public class LinkedBlockingQueueTest {
 
 	public static void test() throws InterruptedException {
 		System.out.println("start");
-		Basket basket = new Basket();
+		final Basket basket = new Basket();
 
 		class Producer implements Runnable {
 			boolean a = true;
