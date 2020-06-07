@@ -14,29 +14,45 @@ public class QuickSort {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int[] a = quick_sort(SortConstant.ARR1, 0, SortConstant.ARR1.length - 1);
-		System.out.println(a);
+		int[] arr = {7, 2, 1, 9, 6, 29, 74, 31};
+		quickSort(arr, 0, arr.length-1);
+		for(int a : arr){
+			System.out.println(a);
+		}
 	}
 	
-	static int[] quick_sort(int[] s, int l, int r){
-	    if (l < r){
-	        int i = l, j = r, x = s[l];
-	        while (i < j){
-	            while(i < j && s[j] >= x) // 从右向左找第一个小于x的数
-					j--;  
-	            if(i < j) 
-					s[i++] = s[j];
-				
-	            while(i < j && s[i] < x) // 从左向右找第一个大于等于x的数
-					i++;  
-	            if(i < j) 
-					s[j--] = s[i];
-	        }
-	        s[i] = x;
-	        quick_sort(s, l, i - 1); // 递归调用 
-	        quick_sort(s, i + 1, r);
-	    }
-	    return s;
+	/**
+	 * 快速排序
+	 * @param arr 待排序数组
+	 * @param start 起始下标
+	 * @param stop 终止下标
+	 * @return
+	 */
+	public static void quickSort(int[] arr, int start, int stop){
+		if(start < stop){
+			int left = start;
+			int right = stop;
+			int tmp = arr[left];
+			while(left<right){
+				//从右向左,调走小于哨兵的元素
+				while(arr[right]>=tmp && left<right){
+					right--;
+				}
+				if(left<right){
+					arr[left++] = arr[right];
+				}
+				//从左向右,调走大于哨兵的元素
+				while(arr[left]<=tmp && left<right){
+					left++;
+				}
+				if(left<right){
+				    arr[right--] = arr[left];
+				}
+			}
+			arr[left] = tmp;
+			quickSort(arr, start, left - 1);
+			quickSort(arr, left + 1, stop);
+		}
 	}
 
 }
