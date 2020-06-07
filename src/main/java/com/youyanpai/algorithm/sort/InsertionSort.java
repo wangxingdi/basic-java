@@ -23,6 +23,12 @@ public class InsertionSort {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		int[] arr = SortConstant.ARR1;
+		directInsertSort(arr);
+		for(int i=0;i<arr.length;i++){
+			System.out.print(arr[i]+", ");
+		}
+		System.out.println("");
 		int[] returnArr1 = directInsertSort1(SortConstant.ARR1, SortConstant.AES);
 		for(int i=0;i<returnArr1.length;i++){
 			System.out.print(returnArr1[i]+", ");
@@ -31,6 +37,21 @@ public class InsertionSort {
 		int[] returnArr2 = directInsertSort2(SortConstant.ARR2, SortConstant.DES);
 		for(int i=0;i<returnArr2.length;i++){
 			System.out.print(returnArr2[i]+", ");
+		}
+	}
+	
+	public static void directInsertSort(int[] arr){
+		if(null==arr){
+			return;
+		}
+		for(int i=1;i<arr.length;i++){
+			int tmp = arr[i];
+			int j = i-1;
+			while(j>=0&&tmp<arr[j]){
+				arr[j+1] = arr[j];
+				j--;
+			}
+			arr[j+1] = tmp;
 		}
 	}
 	

@@ -14,10 +14,16 @@ public class QuickSort {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int[] arr = {7, 2, 1, 9, 6, 29, 74, 31};
-		quickSort(arr, 0, arr.length-1);
-		for(int a : arr){
-			System.out.println(a);
+		int[] arr0 = {7, 2, 1, 9, 6, 29, 74, 31};
+		quickSort(arr0, 0, arr0.length-1);
+		for(int a : arr0){
+			System.out.print(a+" , ");
+		}
+		System.out.println("");
+		int[] arr1 = {7, 2, 1, 9, 6, 29, 74, 31};
+		quickSort_1(arr1, 0, arr1.length-1);
+		for(int a : arr1){
+			System.out.print(a+" , ");
 		}
 	}
 	
@@ -53,6 +59,43 @@ public class QuickSort {
 			quickSort(arr, start, left - 1);
 			quickSort(arr, left + 1, stop);
 		}
+	}
+	
+	public static void quickSort_1(int[] arr, int left, int right){
+		if(left<right){
+			int mid = divide(arr, left, right);
+			quickSort_1(arr, left, mid-1);
+			quickSort_1(arr, mid+1, right);
+		}
+	}
+	
+	/**
+	 * 返回哨兵最后的索引
+	 * @param arr
+	 * @param start
+	 * @param stop
+	 * @return
+	 */
+	public static int divide(int[] arr, int start, int stop){
+		int tmp = arr[start];
+		while(start<stop){
+			while(start<stop && arr[stop]>=tmp){
+				stop--;
+			}
+			if(start<stop){
+				arr[start] = arr[stop];
+				start++;
+			}
+			while(start<stop && arr[start]<=tmp){
+				start++;
+			}
+			if(start<stop){
+				arr[stop] = arr[start];
+				stop--;
+			}
+		}
+		arr[start] = tmp;
+		return start;
 	}
 
 }
