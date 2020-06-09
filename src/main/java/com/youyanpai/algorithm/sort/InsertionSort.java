@@ -38,6 +38,13 @@ public class InsertionSort {
 		for(int i=0;i<returnArr2.length;i++){
 			System.out.print(returnArr2[i]+", ");
 		}
+		System.out.println("");
+		int[] arr20200609 = SortConstant.ARR1;
+		insertSort20200609(arr20200609);
+		for(int i=0;i<arr20200609.length;i++){
+			System.out.print(arr20200609[i]+", ");
+		}
+		
 	}
 	
 	public static void directInsertSort(int[] arr){
@@ -113,6 +120,28 @@ public class InsertionSort {
 			arr[j+1] = tmp;
 		}
 		return arr;
+	}
+	
+	/**
+	 * 直接排序
+	 * 第一个为有序数组,剩下的为无序数组;
+	 * 无序数组中选择一个,和有序数组依次比较,放到合适的位置;
+	 * 将合适位置上的元素以及后面的有序数组依次向后挪一位;
+	 * @param arr
+	 */
+	public static void insertSort20200609(int[] arr){
+		if(null==arr){
+			return;
+		}
+		for(int i=1;i<arr.length;i++){
+			int tmp = arr[i];
+			int j = i - 1;
+			while(j>=0&&arr[j]>tmp){
+				arr[j+1] = arr[j];
+				j--;
+			}
+			arr[j+1] = tmp;
+		}
 	}
 
 }

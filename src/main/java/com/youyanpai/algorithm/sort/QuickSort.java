@@ -25,6 +25,12 @@ public class QuickSort {
 		for(int a : arr1){
 			System.out.print(a+" , ");
 		}
+		System.out.println("");
+		int[] arr20200609 = {7, 2, 1, 9, 6, 29, 74, 31};
+		quickSort20200609(arr20200609, 0, arr1.length-1);
+		for(int a : arr20200609){
+			System.out.print(a+" , ");
+		}
 	}
 	
 	/**
@@ -96,6 +102,55 @@ public class QuickSort {
 		}
 		arr[start] = tmp;
 		return start;
+	}
+	
+	/**
+	 * 快速排序
+	 * 分治法,右左互填
+	 */
+	public static void quickSort20200609(int[] arr, int left, int right){
+		if(left<right){
+			int mid = divide20200609(arr, left, right);
+			quickSort20200609(arr, left, mid-1);
+			quickSort20200609(arr, mid+1, right);
+		}
+	}
+	
+	public static int divide20200609(int[] arr, int left, int right){
+		int mid = left + (right-left)/2;
+		int midIndex = getMid(left, mid, right);
+		int temp = arr[left];
+		arr[left] = arr[midIndex];
+		arr[midIndex] = temp;
+		int tmp = arr[left];
+		while(left<right){
+			while(left<right && arr[right]>=tmp){
+				right--;
+			}
+			if(left<right){
+				arr[left] = arr[right];
+				left++;
+			}
+			while(left<right && arr[left]<=tmp){
+				left++;
+			}
+			if(left<right){
+				arr[right] = arr[left];
+				right--;
+			}
+		}
+		arr[left] = tmp;
+		return left;
+	}
+	
+	private static int getMid(int a, int b, int c){
+		if((b-a)*(a-c)>=0){
+			return a;
+		}else if((a-b)*(b-c)>=0){
+			return b;
+		}else{
+			return c;
+		}
 	}
 
 }

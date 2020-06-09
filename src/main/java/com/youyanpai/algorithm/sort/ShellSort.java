@@ -14,6 +14,12 @@ public class ShellSort {
 			System.out.print(arr[i]+", ");
 		}
 		System.out.println("");
+		int[] arr20200609 = SortConstant.ARR1;
+		shellSort20200609(arr20200609);
+		for(int i=0;i<arr20200609.length;i++){
+			System.out.print(arr20200609[i]+", ");
+		}
+		System.out.println("");
 	}
 	
 	public static void shellSort(int[] arr){
@@ -30,6 +36,31 @@ public class ShellSort {
 		int tmp = arr[i];
 		int j = i-gap;
 		while(j>=0&&tmp<arr[j]){
+			arr[j+gap] = arr[j];
+			j-=gap;
+		}
+		arr[j+gap] = tmp;
+	}
+	
+	/**
+	 * 希尔排序
+	 * 获取gap,gap归1,for遍历
+	 * @param arr
+	 */
+	public static void shellSort20200609(int[] arr){
+		int gap = arr.length/2;
+		while(gap>1){
+			gap /= 2;
+			for(int i=gap;i<arr.length-1;i++){
+				insertSort20200609(arr, gap, i);
+			}
+		}
+	}
+	
+	public static void insertSort20200609(int[] arr, int gap, int i){
+		int tmp = arr[i];
+		int j = i - gap;
+		while(j>0&&arr[j]>tmp){
 			arr[j+gap] = arr[j];
 			j-=gap;
 		}

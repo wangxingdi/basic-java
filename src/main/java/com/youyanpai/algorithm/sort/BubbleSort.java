@@ -29,6 +29,14 @@ public class BubbleSort {
 		for(int i=0;i<returnArr.length;i++){
 			System.out.print(returnArr[i]+", ");
 		}
+		System.out.println("");
+		int[] arr20200609 = {7, 2, 1, 9, 6, 29, 74, 31, 124, 25, 35, 54, 85, 2, 24, 35, 68, 84, 51, 24, 67, 98, 189};
+		bubbleSort20200609(arr20200609);
+		for(int i=0;i<arr20200609.length;i++){
+			System.out.print(arr20200609[i]+", ");
+		}
+		System.out.println("");
+		
 	}
 	
 	/**
@@ -65,6 +73,22 @@ public class BubbleSort {
 			}
 		}
 		return arr;
+	}
+	
+	/**
+	 * 冒泡排序
+	 * @param arr
+	 */
+	public static void bubbleSort20200609(int[] arr){
+		for(int i=arr.length-1;i>1;i--){
+			for(int j=0;j<i;j++){
+				if(arr[j]>arr[j+1]){
+					int tmp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = tmp;
+				}
+			}
+		}
 	}
 
 }
