@@ -2,6 +2,7 @@ package com.youyanpai.algorithm.search;
 
 /**
  * 二分查找
+ * 时间复杂度: logN
  * @author wangxd
  */
 public class BinarySearch {
