@@ -32,7 +32,7 @@ public class Tree20200610 {
 	
 	/**
 	 * 获取二叉树深度
-	 * 上海交大严蔚敏版的数据结构中,根节点的深度从1开始
+	 * 上海交大严蔚敏版的数据结构中,根节点的深度从1开始;而维基百科则是从0开始;
 	 * @param root
 	 * @return
 	 */
@@ -67,6 +67,22 @@ public class Tree20200610 {
 		 * traversalBinaryTree(root.getLeft());
          * traversalBinaryTree(root.getRight());
          * System.out.print(root.getVal()+" "); */
+	}
+	
+	/**
+	 * 判断是否是平衡二叉树
+	 * @return
+	 */
+	public static boolean isAvl_1(TreeNode<Integer> root){
+		if(null==root){
+			return true;
+		}
+		int left = getBinaryTreeDepth(root.getLeft());
+		int right = getBinaryTreeDepth(root.getRight());
+		if(left-right>1 || right-left<-1){
+			return false;
+		}
+		return isAvl_1(root.getLeft())&&isAvl_1(root.getRight());
 	}
 
 }
