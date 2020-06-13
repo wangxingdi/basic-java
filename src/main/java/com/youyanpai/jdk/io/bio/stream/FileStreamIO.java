@@ -27,11 +27,11 @@ public class FileStreamIO {
 			while((i = in.read(bytes)) != -1){
 				out.write(bytes, 0, i);
 			}
-			out.write(("当前系统时间:"+new Date()).toString().getBytes());
+			out.write(("当前系统时间: "+new Date()).toString().getBytes());
 			out.close();
 			in.close();
 		} catch ( IOException ex) {
-			
+			ex.printStackTrace();
 		}
 		System.out.println("===读写结束===");
 	}

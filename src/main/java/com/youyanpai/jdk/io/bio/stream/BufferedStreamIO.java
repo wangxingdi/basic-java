@@ -13,7 +13,7 @@ import java.util.Date;
  * 
  * @author wangxd
  */
-public class FileStreamBufferedIO {
+public class BufferedStreamIO {
 	
 	public static void main(String[] args) throws IOException {
 		String inFile = "src/main/java/com/youyanpai/jdk/io/bio/stream/FileStreamBufferedIO.java";

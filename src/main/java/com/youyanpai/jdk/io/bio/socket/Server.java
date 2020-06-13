@@ -26,6 +26,7 @@ public class Server {
 	/**
 	 * 开启服务端
 	 * 没有使用线程池的方式
+	 * 1. readLine()会阻塞性的寻找"回车"和"换行"符,所以谨慎使用
 	 */
 	public static void startServer() {
 		try {

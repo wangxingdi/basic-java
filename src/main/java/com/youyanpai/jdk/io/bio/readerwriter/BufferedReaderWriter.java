@@ -16,7 +16,7 @@ import java.io.OutputStreamWriter;
  * 
  * @author wangxd
  */
-public class FileBufferReaderWriter {
+public class BufferedReaderWriter {
 
 	public static void main(String[] args) throws IOException {
 		long start = System.currentTimeMillis();
@@ -28,6 +28,7 @@ public class FileBufferReaderWriter {
 		try (InputStream is = new FileInputStream(inFile);
 				InputStreamReader isr = new InputStreamReader(is);
 				BufferedReader br = new BufferedReader(isr)){
+			//使用read()
 			/*while (-1 != (length = br.read(buffer))) {
 				try(OutputStream os = new FileOutputStream(outFile, true);
 						OutputStreamWriter osw = new OutputStreamWriter(os);
@@ -37,6 +38,7 @@ public class FileBufferReaderWriter {
 					System.out.println("writer构建流失败");
 				}
 			}*/
+			//使用readLine()
 			while (null != (s=br.readLine())) {
 				try(OutputStream os = new FileOutputStream(outFile, true);
 						OutputStreamWriter osw = new OutputStreamWriter(os);
