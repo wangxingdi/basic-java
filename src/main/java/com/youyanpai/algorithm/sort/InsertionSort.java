@@ -23,27 +23,36 @@ public class InsertionSort {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int[] arr = SortConstant.ARR1;
-		directInsertSort(arr);
-		for(int i=0;i<arr.length;i++){
-			System.out.print(arr[i]+", ");
+		int[] arr1 = {1,5,9,2,46,35,16};
+		directInsertSort(arr1);
+		for(int i=0;i<arr1.length;i++){
+			System.out.print(arr1[i]+", ");
 		}
 		System.out.println("");
-		int[] returnArr1 = directInsertSort1(SortConstant.ARR1, SortConstant.AES);
+		int[] arr2 = {1,5,9,2,46,35,16};
+		int[] returnArr1 = directInsertSort1(arr2, SortConstant.AES);
 		for(int i=0;i<returnArr1.length;i++){
 			System.out.print(returnArr1[i]+", ");
 		}
 		System.out.println("");
-		int[] returnArr2 = directInsertSort2(SortConstant.ARR2, SortConstant.DES);
+		int[] arr3 = {1,5,9,2,46,35,16};
+		int[] returnArr2 = directInsertSort2(arr3, SortConstant.DES);
 		for(int i=0;i<returnArr2.length;i++){
 			System.out.print(returnArr2[i]+", ");
 		}
 		System.out.println("");
-		int[] arr20200609 = SortConstant.ARR1;
+		int[] arr20200609 = {1,5,9,2,46,35,16};
 		insertSort20200609(arr20200609);
 		for(int i=0;i<arr20200609.length;i++){
 			System.out.print(arr20200609[i]+", ");
 		}
+		System.out.println("");
+		int[] arr20200614 = {1,5,9,2,46,35,16};
+		insertSort20200614(arr20200614);
+		for(int i=0;i<arr20200614.length;i++){
+			System.out.print(arr20200614[i]+", ");
+		}
+		
 		
 	}
 	
@@ -143,5 +152,57 @@ public class InsertionSort {
 			arr[j+1] = tmp;
 		}
 	}
+	
+	/**
+	 * for loop + for loop形式,和for loop + while loop稍有不同
+	 * @param arr
+	 */
+	public static void insertSort20200614(int[] arr){
+		if(null==arr){
+			return;
+		}
+		for(int i=1;i<arr.length;i++){
+			int tmp = arr[i];
+			int j = i - 1;
+			while(j>=0&&arr[j]>tmp){
+				arr[j+1] = arr[j];
+				j--;
+			}
+			arr[j+1] = tmp;
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

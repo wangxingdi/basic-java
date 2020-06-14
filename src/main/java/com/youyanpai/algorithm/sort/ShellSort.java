@@ -8,16 +8,22 @@ package com.youyanpai.algorithm.sort;
 public class ShellSort {
 
 	public static void main(String[] args) {
-		int[] arr = SortConstant.ARR1;
+		int[] arr = {1,5,9,2,46,35,16};
 		shellSort(arr);
 		for(int i=0;i<arr.length;i++){
 			System.out.print(arr[i]+", ");
 		}
 		System.out.println("");
-		int[] arr20200609 = SortConstant.ARR1;
+		int[] arr20200609 = {1,5,9,2,46,35,16};
 		shellSort20200609(arr20200609);
 		for(int i=0;i<arr20200609.length;i++){
 			System.out.print(arr20200609[i]+", ");
+		}
+		System.out.println("");
+		int[] arr20200614 = {1,5,9,2,46,35,16};
+		shellSort20200614(arr20200614);
+		for(int i=0;i<arr20200614.length;i++){
+			System.out.print(arr20200614[i]+", ");
 		}
 		System.out.println("");
 	}
@@ -66,5 +72,60 @@ public class ShellSort {
 		}
 		arr[j+gap] = tmp;
 	}
+	
+	public static void shellSort20200614(int[] arr){
+		for(int gap=arr.length/2;gap>0;gap/=2){
+			for(int i=gap;i<arr.length-1;i++){
+				insertSort20200614(arr, gap, i);
+			}
+		}
+	}
+
+	private static void insertSort20200614(int[] arr, int gap, int i) {
+		if(null==arr){
+			return;
+		}
+		int tmp = arr[i];
+		int j = i - gap; 
+		while(j>=0&&arr[j]>tmp){
+			arr[j+gap] = arr[j];
+			j-=gap;
+		}
+		arr[j+gap] = tmp;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
