@@ -35,6 +35,14 @@ public class T {
 	     System.out.println(addTwoNumbers(n1, n4));
 	     
 	     lengthOfLongestSubstring("abba");
+	     
+	     int[] bst = {1,2,3,4,5,6,7,8,9};
+	     TreeNode root = null;
+	     for(int i=0;i<bst.length;i++){
+	    	 root = insertBST(bst[i], root);
+	    	 System.out.println(root);
+	     }
+	     
 	}
 
 	 public static <T> T toBean(Map<String, Object> beanPropMap, Class<T> type) {
@@ -124,6 +132,51 @@ public class T {
 	        }
 	        return max;
 	    }
+	  
+	  static class TreeNode {
+		    int val;
+		    TreeNode left;
+		    TreeNode right;
+		    public TreeNode(int val) {
+		        this.val = val;
+		    }
+		}
+	  
+	  /**
+	   * 生成一个二叉搜索树
+	   * @param value
+	   * @param root
+	   */
+	  public static TreeNode insertBST(int value, TreeNode root){
+		  if(null==root){
+			  root = new TreeNode(value);
+		  }else{
+			  TreeNode current = root;
+			  boolean isLeft = true;
+			  TreeNode parent = root;
+			  boolean isEffect = true;
+			  while(null!=current){
+				  parent = current;
+				  if(value<current.val){
+					  current = current.left;
+					  isLeft = true;
+				  }else if(value>current.val){
+					  current = current.right;
+					  isLeft = false;
+				  }else{
+					  isEffect = false;
+				  }
+			  }
+			  if(isEffect){
+				  if(isLeft){
+					  parent.left = new TreeNode(value);
+				  }else{
+					  parent.right = new TreeNode(value);
+				  }
+			  }
+		  }
+		  return root;
+	  }
 
 	    
 }
