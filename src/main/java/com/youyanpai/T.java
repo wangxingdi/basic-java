@@ -42,7 +42,6 @@ public class T {
 	    	 root = insertBST(bst[i], root);
 	    	 System.out.println(root);
 	     }
-	     
 	}
 
 	 public static <T> T toBean(Map<String, Object> beanPropMap, Class<T> type) {

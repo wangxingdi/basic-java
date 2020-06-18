@@ -24,10 +24,8 @@ public class LazySingletonPlus {
 	
 	private static LazySingletonPlus instance = null;
 	
-	private static Object syncObj = new Object();
-	
 	public static LazySingletonPlus getInstance(){
-		synchronized (syncObj) {
+		synchronized (LazySingletonPlus.class) {
 			if(null==instance){
 				instance = new LazySingletonPlus();
 			}
