@@ -16,8 +16,8 @@ import java.util.Date;
 public class BufferedStreamIO {
 	
 	public static void main(String[] args) {
-		String inFile = "src/main/java/com/youyanpai/jdk/io/bio/stream/FileStreamBufferedIO.java";
-		String outFile = "src/main/java/com/youyanpai/jdk/io/bio/stream/FileStreamBufferedIOCopy.txt";
+		String inFile = "src/main/java/com/youyanpai/jdk/io/bio/stream/BufferedStreamIO.java";
+		String outFile = "src/main/java/com/youyanpai/jdk/io/bio/stream/BufferedStreamIOCopy.txt";
 		try(InputStream is = new FileInputStream(inFile);
 				OutputStream os = new FileOutputStream(outFile);
 				BufferedInputStream bis = new BufferedInputStream(is);
