@@ -26,7 +26,9 @@ public class ListIteratorTest {
 		//向后遍历
 		while(listIterator.hasNext()){
 			if("z".equals(listIterator.next())){
+				System.out.println(listIterator.previous());
 				listIterator.add("nnn");
+				listIterator.add("mmm");
 			}else{
 				listIterator.add("kkk");
 			}

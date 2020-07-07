@@ -21,6 +21,7 @@ public class TT {
     public static void main(String[] args) {
         strLabel = "main线程";
         threadLabel.set("main线程");
+        threadLabel.set("main线程2");
 
         Thread thread = new Thread() {
             @Override
