@@ -10,7 +10,7 @@ import java.io.FileWriter;
 public class FileReaderWriter {
 
 	public static void main(String[] args) {
-		test3();
+		test2();
 	}
 	
 	public static void test1(){
