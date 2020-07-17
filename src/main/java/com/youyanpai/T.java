@@ -4,18 +4,16 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.youyanpai.T1.ListNode;
-
 public class T {
 
 	public static void main(String[] args) {
-	     Map<String, Object> map = new HashMap<>();
+		 HashMap<String, Object> map = new HashMap<>();
 	     map.put("name", "Tina");
 	     map.put("age", 30);
 	     map.put("address", "101 Sun Street, Yellow Town");
 	     Person person = toBean(map, Person.class);
 	     System.out.println(person);
-	     
+	    
 	     StringBuilder s = new StringBuilder();
 	     s.append("abcde");
 	     StringBuilder s1 = s.reverse();
