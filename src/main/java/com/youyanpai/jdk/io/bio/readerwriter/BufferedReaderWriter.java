@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -20,11 +21,13 @@ public class BufferedReaderWriter {
 
 	public static void main(String[] args) throws IOException {
 		long start = System.currentTimeMillis();
-		String inFile = "src/main/java/com/youyanpai/jdk/io/bio/readerwriter/FileBufferReaderWriter.java";
-		String outFile = "src/main/java/com/youyanpai/jdk/io/bio/readerwriter/FileBufferReaderWriterCopy.txt";
+		String inFile = "src/main/java/com/youyanpai/jdk/io/bio/readerwriter/BufferedReaderWriter.java";
+		String outFile = "src/main/java/com/youyanpai/jdk/io/bio/readerwriter/BufferedReaderWriterCopy.txt";
 		String s = "";
 		char[] buffer = new char[1024];
 		int length = 0;
+//		FileReader fr = new FileReader(inFile);
+//		BufferedReader brr = new BufferedReader(fr);
 		try (InputStream is = new FileInputStream(inFile);
 				InputStreamReader isr = new InputStreamReader(is);
 				BufferedReader br = new BufferedReader(isr)){

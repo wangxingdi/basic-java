@@ -19,7 +19,7 @@ public class Server {
 
 	public static final int PORT = 8888;
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		startThreadPoolServer();
 	}
 
@@ -54,8 +54,9 @@ public class Server {
 	 * 开启服务端
 	 * 使用线程池的方式
 	 * @throws IOException
+	 * @throws InterruptedException 
 	 */
-	public static void startThreadPoolServer() throws IOException {
+	public static void startThreadPoolServer() throws IOException, InterruptedException {
 		// 创建线程池
 		ThreadPoolExecutor pool = new ThreadPoolExecutor(10, 10, 60, TimeUnit.SECONDS, new LinkedBlockingQueue<>(10));
 		// 创建服务端
@@ -64,6 +65,7 @@ public class Server {
 		Socket client = null;
 		System.out.println("启动了一个ServerSocket");
 		while ((client = server.accept())!=null) {
+			Thread.currentThread().sleep(3000);
 			System.out.println("与客户端连接成功！");
 			pool.execute(new ReaderHandle(client));
 		}
