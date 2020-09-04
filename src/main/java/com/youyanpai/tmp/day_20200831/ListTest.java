@@ -5,8 +5,8 @@ import java.util.LinkedList;
 
 public class ListTest {
 
-    static ArrayList<Integer> arr = new ArrayList<>();
-    static LinkedList<Integer> link = new LinkedList<>();
+    static ArrayList<Integer> arr = new ArrayList<Integer>();
+    static LinkedList<Integer> link = new LinkedList<Integer>();
 
     public static void main(String[] args) {
         testSpeed(10000000);
