@@ -6,6 +6,7 @@ package com.daiyuma.tmp.year_2020.month_09.day_12;
  */
 public class Son extends Parent {
     public Son(){
+        System.out.println("Son构造函数");
         method();
     }
 

@@ -7,6 +7,7 @@ package com.daiyuma.tmp.year_2020.month_09.day_12;
 public class Parent {
 
     public Parent(){
+        System.out.println("Parent构造函数");
         method();
     }
 
@@ -15,6 +16,19 @@ public class Parent {
     }
 
     public static void main(String[] args) {
+        System.out.println("===new Parent()===");
+        /**
+         * 1. 先执行Parent构造方法
+         * 2. 然后再执行method()方法
+         */
         new Parent();
+        System.out.println("===new Son()===");
+        /**
+         * 1. 先执行Parent构造方法
+         * 2. 然后再执行Son.method()
+         * 3. 然后在执行Son构造方法
+         * 4. 最后执行Son.method()
+         */
+        new Son();
     }
 }
