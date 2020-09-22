@@ -19,4 +19,9 @@ public class TimeUtils {
         LocalDateTime now = LocalDateTime.now();
         return DateTimeFormatter.ofPattern(TIME_FORMATTER).format(now);
     }
+
+    public static String getGitDatePath(){
+        LocalDateTime now = LocalDateTime.now();
+        return "/"+now.getYear()+"/"+now.getMonth()+"/";
+    }
 }
