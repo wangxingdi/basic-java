@@ -18,13 +18,15 @@ import java.time.Instant;
 public class ReadWeiXinHtml {
 
     //图片本地缓存 - 新机器一次修改即可
-    private static final String LOCAL_IMG_SAVE_PATH = "D://backup";
+    private static final String LOCAL_IMG_SAVE_PATH = "D://today";
+    //当天文章序号 - 每次运行都需要+1
+    private static final String TODAY_ARTICLE_ORDER = "001";
 
     public static void main(String[] args) throws IOException, InterruptedException {
         /**
          * 运行前请修改参数
          */
-        wxArticleSpider("https://mp.weixin.qq.com/s/qr9tTHVm6mcKO7BnHbCgGQ", ArticleCategoryEnum.WORK);
+        wxArticleSpider("https://mp.weixin.qq.com/s/3Mi13ffINyICvk6gneA25g", ArticleCategoryEnum.HEALTH);
     }
 
     /**
@@ -37,6 +39,7 @@ public class ReadWeiXinHtml {
         Element js_article = doc.getElementById("js_article");
         //标题
         String title = js_article.getElementById("activity-name").text();
+        System.out.println("===文章标题："+title);
         //文章内容
         Element js_content = js_article.getElementById("js_content");
         Elements elements = js_content.getAllElements();
@@ -110,7 +113,8 @@ public class ReadWeiXinHtml {
         URL imgUrl = new URL(imgSrc);
         URLConnection conn = imgUrl.openConnection();
         InputStream is = conn.getInputStream();
-        OutputStream os = new FileOutputStream(new File(LOCAL_IMG_SAVE_PATH, getImgName(imgFormat, cat).toString()));
+        String imgName = getImgName(imgFormat, cat).toString();
+        OutputStream os = new FileOutputStream(new File(LOCAL_IMG_SAVE_PATH, imgName));
         byte[] buf = new byte[1024];
         int p = 0;
         while ((p = is.read(buf)) != -1) {
@@ -118,11 +122,11 @@ public class ReadWeiXinHtml {
         }
         StringBuilder str = new StringBuilder();
         str.append("<figure class=\"wp-block-image size-large\">");
-        str.append("<img src=\"https://cdn.jsdelivr.net/gh/wecdn/red01@master ");
+        str.append("<img src=\"https://cdn.jsdelivr.net/gh/wecdn/red01@master");
         //git目录
         str.append(TimeUtils.getGitDatePath());
         //图片名称
-        str.append(getImgName(imgFormat, cat));
+        str.append(imgName);
         str.append("\"");
         str.append("alt=\"");
         str.append(title);
@@ -145,7 +149,7 @@ public class ReadWeiXinHtml {
         str.append(TimeUtils.getDate());
         str.append("_");
         //序号
-        str.append("这个序号怎么办");
+        str.append(TODAY_ARTICLE_ORDER);
         str.append("_");
         //时间
         str.append(TimeUtils.getTime());
@@ -155,7 +159,7 @@ public class ReadWeiXinHtml {
         //图片格式
         str.append(".");
         str.append(imgFormat);
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         return str;
     }
 }

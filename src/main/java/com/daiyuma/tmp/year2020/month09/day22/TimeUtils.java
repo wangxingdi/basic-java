@@ -22,6 +22,14 @@ public class TimeUtils {
 
     public static String getGitDatePath(){
         LocalDateTime now = LocalDateTime.now();
-        return "/"+now.getYear()+"/"+now.getMonth()+"/";
+        return "/"+now.getYear()+"/"+fillZero(now.getMonthValue())+"/";
+    }
+
+    public static String fillZero(int i){
+        if(i<10){
+            return "0"+i;
+        }else{
+            return String.valueOf(i);
+        }
     }
 }
