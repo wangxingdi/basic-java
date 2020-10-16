@@ -6,9 +6,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.*;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
+import java.net.*;
 import java.time.Instant;
 
 /**
@@ -26,7 +24,7 @@ public class ReadWeiXinHtml {
         /**
          * 运行前请修改参数
          */
-        wxArticleSpider("https://mp.weixin.qq.com/s/3Mi13ffINyICvk6gneA25g", ArticleCategoryEnum.HEALTH);
+        wxArticleSpider("https://mp.weixin.qq.com/s/T3GY9bKUQVYd1IIPvG0vWw", ArticleCategoryEnum.HEALTH);
     }
 
     /**
