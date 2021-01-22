@@ -40,4 +40,14 @@ public class Son {
         Node() {
         }
     }
+
+    /**
+     * 重载
+     */
+    public int a(int a){
+        return a;
+    }
+    protected int a(String a){
+        return 2;
+    }
 }

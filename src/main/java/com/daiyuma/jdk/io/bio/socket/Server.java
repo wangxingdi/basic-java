@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class Server {
 
-	public static final int PORT = 8888;
+	public static final int PORT = 55000;
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 		startThreadPoolServer();
@@ -30,7 +30,7 @@ public class Server {
 	 */
 	public static void startServer() {
 		try {
-			ServerSocket server = new ServerSocket(8888);
+			ServerSocket server = new ServerSocket(PORT);
 			System.out.println("启动服务器....");
 			Socket client = null;
 			while ((client = server.accept()) != null) {
